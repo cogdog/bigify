@@ -22,6 +22,7 @@
 			width: 100%;
 			text-align: center;
 			text-wrap: break;
+			word-wrap:break-word;
 			color:#343434;
 			font: 125px/1.1 "Impact";
 			display: block;
@@ -34,14 +35,16 @@
 
 			
 		#actor {
-			width: 400px;
+			width: 100%;
+			min-height:280px;
 			border: none;
 			background: rgba(0,0,0,0);
 			text-align:center;
+			word-wrap:break-word;
 			color: #aaa;
 			font: 125px/1.1 "Impact";
 			display:none;
-		}
+ 		}
 
 	</style>
 
@@ -64,9 +67,9 @@
 
 		<form>
 		
-		<input type="text" id="actor" placeholder="make me bigly">
 		
- 
+		
+ 	   <textarea id="actor"   placeholder="make me bigly"></textarea>
 	
 	</div>
 	
@@ -81,10 +84,13 @@
 		});
 
 		$('#actor').bind('keypress keyup blur', function(event) {
-			console.log(event);
-			$('#tiny').text($(this).val());
+ 			$('#tiny').text($(this).val());
 			$("#tiny").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
 			$("#actor").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
+			var newh=$("#actor").prop("scrollHeight");
+			 
+			$("#actor").css("height",newh+'px');
+			
  			if (event.which === 13 || event.type === "blur") {
 				 $(this).hide();
 				 $('#tiny').show();
@@ -100,6 +106,7 @@
 			$('#actor').val(text);
 			$("#actor").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
 			
+			$("#actor").css("height",$(this).height());
  			$('#actor').show().select();
 			$('#actor').get(0).setSelectionRange(0,9999);	
 		});
