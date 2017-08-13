@@ -81,11 +81,11 @@
 		});
 
 		$('#actor').bind('keypress keyup blur', function(event) {
-			
+			console.log(event);
 			$('#tiny').text($(this).val());
 			$("#tiny").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
 			$("#actor").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
- 			if (event.which === 13) {
+ 			if (event.which === 13 || event.type === "blur") {
 				 $(this).hide();
 				 $('#tiny').show();
 				return false;
@@ -100,7 +100,8 @@
 			$('#actor').val(text);
 			$("#actor").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
 			
- 			$('#actor').show().select();	
+ 			$('#actor').show().select();
+			$('#actor').get(0).setSelectionRange(0,9999);	
 		});
 	</script>
 	
