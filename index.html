@@ -30,15 +30,7 @@
 			#ccc -3px 3px 0,
 			#ccc -4px 4px 0;
 		}
-		
-		#greenroom {
-			position:absolute;
-			width: 400px;
-			bottom:10px;
-  			left:50%;
-  			margin-left:-200px;
-
-		}
+		 
 
 			
 		#actor {
@@ -47,6 +39,8 @@
 			background: rgba(0,0,0,0);
 			text-align:center;
 			color: #aaa;
+			font: 125px/1.1 "Impact";
+			display:none;
 		}
 
 	</style>
@@ -65,14 +59,14 @@
 		
 	</div>
 	
-	<div id="greenroom">
+	 
 
 
 		<form>
 		
 		<input type="text" id="actor" placeholder="make me bigly">
 		
-		</form>
+ 
 	
 	</div>
 	
@@ -81,16 +75,33 @@
 	<script type="text/javascript">
 	
 		$("#tiny").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
-
+		
 		$("input[type='text']").on("click", function () {
 		   $(this).select();
 		});
 
-		$('#actor').bind('keypress keyup blur', function() {
+		$('#actor').bind('keypress keyup blur', function(event) {
+			
 			$('#tiny').text($(this).val());
 			$("#tiny").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
-		});		
-				
+			$("#actor").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
+ 			if (event.which === 13) {
+				 $(this).hide();
+				 $('#tiny').show();
+				return false;
+			}
+		});
+		
+		$('#tiny').click(function(){
+			var pos = $(this).offset();
+			var text = $(this).html();
+			$(this).hide();
+ 			$('#actor').css({position:'fixed',top: pos.top, left: pos.left,width:'100%'});
+			$('#actor').val(text);
+			$("#actor").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
+			
+ 			$('#actor').show().select();	
+		});
 	</script>
 	
 </body>
