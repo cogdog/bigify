@@ -109,6 +109,15 @@
  			$('#actor').show().select();
 			$('#actor').get(0).setSelectionRange(0,9999);	
 		});
+		
+		$(document).keyup(function (e) {
+			// go to URL if field contains one and right arrow key pressed
+			if (e.keyCode == 39) { 
+				tinytext = $('#tiny').text();
+				if (tinytext.indexOf('http') !== -1) window.location.href = tinytext; 
+			}
+		});		
+		
 	</script>
 	
 </body>
