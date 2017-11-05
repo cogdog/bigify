@@ -8,7 +8,7 @@ Use it yourself at https://cogdog.github.io/bigify
 
 Whatever is typed or pasted in the form field at the very bottom of the screen is bigified. This uses [FitText](http://fittextjs.com/) for scaling with window size. It probably could be done with [viewport sized typography](https://css-tricks.com/viewport-sized-typography/).
 
-Now you can use it via a browser bookmarklet tool that will Bigify the URL of the current site in a new window/tab. Just drag the [Bigify URL](javascript:(function(){window.open('https://cogdog.github.io/bigify/?t='+ encodeURI(document.URL.replace(/^https?\:\/\//i, "")));})();) link to your bookmarks bar.
+Now you can use it via a browser bookmarklet tool that will Bigify the URL of the current site in a new window/tab. [Get one now](https://cogdog.github.io/bigify/bookmarklet.html)!
 
 I just did this as something to do on a cross country flight. And I need it for an upcoming workshop. Many ways this could be improved. That falls on you to fork it, eh?
 

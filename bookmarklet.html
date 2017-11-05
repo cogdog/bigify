@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Bigify It Bookmarklet</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+	<style type="text/css">
+		body {
+		  background: #ededed; 
+		  font-family: 'Passion One', 'Helvetica', 'Arial', sans-serif;
+		  font-size: 1.5em;
+		  line-height: 1.1;
+		}
+		
+		.container {
+			width: 98%;
+		}
+		
+		header {
+			width: 100%;
+			margin:20% auto 0;
+		}
+		
+		#tiny {
+			font-size: 4em;
+			border: none;
+			width: 100%;
+			text-align: center;
+			text-wrap: break;
+			word-wrap:break-word;
+			color:#343434;
+			display: block;
+			text-shadow:#ccc -1px 1px 0,
+			#ccc -2px 2px 0,
+			#ccc -3px 3px 0,
+			#ccc -4px 4px 0;
+		}
+		 	
+		#actor {
+			width: 60%;
+			margin: 1em auto;
+			border: none;
+			background: rgba(0,0,0,0);
+			text-align:center;
+			color: #aaa;
+ 		}
+ 		
+
+	</style>
+
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body>
+
+	<div class="container">
+		<header>
+		
+		<div id="tiny">Get Your Bookmarket!</div>
+		
+		</header>
+		
+		<div id="actor">
+			Create a  tool to bigify the URL of any web page in a new  window. Just drag the <a href="javascript:(function(){window.open('https://cogdog.github.io/bigify/?t='+ encodeURI(document.URL.replace(/^https?\:\/\//i, &quot;&quot;)));})();">Bigify URL</a> to your browser's bookmarks bar, visit a page, click it, and enjoy.
+		</div>
+		
+	</div>
+	
+	
+</body>
+</html>
