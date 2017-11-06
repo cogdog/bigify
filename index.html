@@ -19,7 +19,7 @@
 		
 		header {
 			width: 100%;
-			margin:20% auto 0;
+			margin:5% auto 0;
 		}
 		
 		#tiny {
@@ -121,6 +121,7 @@
 			
  			if (event.which === 13 || event.type === "blur") {
 				 $(this).hide();
+				 $('#tiny').html( $('#tiny').html().replace(/\//g, '/<wbr>') );
 				 $('#tiny').show();
 				 setLink ( $('#tiny').text());
 				return false;
@@ -128,6 +129,7 @@
 		});
 		
 		$('#tiny').click(function(){
+			$('#tiny').html( $('#tiny').html().replace(/<wbr>/g, '') );
 			var pos = $(this).offset();
 			var text = $(this).html();
 			$(this).hide();
@@ -162,6 +164,7 @@
 				// decode the value and stick it in the box
 				$('#tiny').text( decodeURIComponent((qs['t'] + '').replace(/\+/g, '%20')) );
 				
+				$('#tiny').html( $('#tiny').html().replace(/\//g, '/<wbr>') );
 			} else {
 			
 				// default box text
