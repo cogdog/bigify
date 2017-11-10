@@ -36,6 +36,14 @@
 			#ccc -3px 3px 0,
 			#ccc -4px 4px 0;
 		}
+		
+		#gobtn {
+			width:40px;
+			height: auto;
+			margin: 0 auto;
+			display:none;
+		}
+		
 		 	
 		#actor {
 			width: 100%;
@@ -68,6 +76,9 @@
 		<header>
 		
 		<div id="tiny"></div>
+		
+		
+		<div id="gobtn"><a href="#"><img alt="Go" src="images/go.png"></a></div>
 		
 		</header>
 		
@@ -121,6 +132,7 @@
 			
  			if (event.which === 13 || event.type === "blur") {
 				 $(this).hide();
+				 setGoButton (  $('#tiny').text());
 				 $('#tiny').html( $('#tiny').html().replace(/\//g, '/<wbr>') );
 				 $('#tiny').show();
 				 setLink ( $('#tiny').text());
@@ -133,6 +145,7 @@
 			var pos = $(this).offset();
 			var text = $(this).html();
 			$(this).hide();
+			$('#gobtn').hide();
  			$('#actor').css({position:'fixed',top: pos.top, left: pos.left,width:'100%'});
 			$('#actor').val(text);
 			$("#actor").fitText(1.2, { minFontSize: '50px', maxFontSize: '125px' });
@@ -155,12 +168,26 @@
 			$('#savelink').attr('href', '//' + location.host + location.pathname + '?t=' + encodeURIComponent(str).replace(/%20/g, '+') );
 		}
 		
+		function setGoButton ( checktext ) {
+			
+			if (checktext.indexOf('http') !== -1) {
+				$('#gobtn a').attr('href', checktext);
+				$('#gobtn').show();
+			} else {
+				$('#gobtn a').attr('href', '');
+				$('#gobtn').hide();
+			}
+		}
+				
+		
+		
 		$(document).ready(function(){
-		
-		
+			 
 			// do we have a param named t?
 			if ( typeof qs['t'] != 'undefined' )  {
 			
+				 setGoButton ( qs['t'] );
+				 
 				// decode the value and stick it in the box
 				$('#tiny').text( decodeURIComponent((qs['t'] + '').replace(/\+/g, '%20')) );
 				
@@ -168,10 +195,13 @@
 			} else {
 			
 				// default box text
+				 $('#gobtn').hide();
 				$('#tiny').text('Make me Big');
 			}
 		
 			 setLink( $('#tiny').text() );
+			 
+			 
 		});
 	</script>
 	
