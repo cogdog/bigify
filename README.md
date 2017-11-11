@@ -16,6 +16,8 @@ I just did this as something to do on a cross country flight. And I need it for 
 
 ## Updates
 
+* Nov 10, 2017 Added display of a link button below the displayed text if it is a URL
+
 * Nov 06, 2017 Created a Javascript bookmarklet tool to spawn a bigified display of the current URL in a new tab
 
 * Oct 02, 2017 Added capability to pre-load content via query string; the current content is saved as a link via small icon in bottom right. Just copy the URL to use as a preloaded Bigif- try  https://cogdog.github.io/bigify?t=Now+you+can+preset+what+is+bigified!
